@@ -9,8 +9,8 @@ export default function PrivacyPolicy() {
           <h2 className="text-xl font-semibold mb-3">What We Collect</h2>
           <p className="text-neutral-400 leading-relaxed">
             When you download TurboCode, we collect your email address solely to
-            notify you of major updates. We also store a hashed version of your
-            IP address for rate-limiting purposes only.
+            notify you of major updates. We also store your IP address for
+            rate-limiting purposes only.
           </p>
         </section>
 
