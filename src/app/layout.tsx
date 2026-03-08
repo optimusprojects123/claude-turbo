@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Claude Turbo - Your Claude Code Companion in the Notch",
+  title: "TurboCode - Your Claude Code Companion in the Notch",
   description:
     "Auto-allow permissions, turbo mode, and a beautiful notch integration for Claude Code on macOS.",
 };

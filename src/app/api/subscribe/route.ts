@@ -1,26 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { promises as fs } from "fs";
-import path from "path";
-
-const SUBSCRIBERS_FILE = path.join(process.cwd(), "subscribers.json");
+import { kv } from "@vercel/kv";
 
 interface Subscriber {
   email: string;
   timestamp: string;
   ip: string | null;
-}
-
-async function readSubscribers(): Promise<Subscriber[]> {
-  try {
-    const data = await fs.readFile(SUBSCRIBERS_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
-}
-
-async function writeSubscribers(subscribers: Subscriber[]): Promise<void> {
-  await fs.writeFile(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2));
 }
 
 export async function POST(request: NextRequest) {
@@ -42,36 +26,43 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const subscribers = await readSubscribers();
+    // Check if already subscribed
+    const exists = await kv.sismember("subscribers:emails", email);
 
-    if (subscribers.length >= 50000) {
-      return NextResponse.json({
-        success: true,
-        downloadUrl: "/claude-turbo.zip",
-      });
-    }
-
-    const alreadyExists = subscribers.some((s) => s.email === email);
-
-    if (!alreadyExists) {
-      const rawIp = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for") ?? "";
+    if (!exists) {
+      const rawIp =
+        request.headers.get("x-real-ip") ??
+        request.headers.get("x-forwarded-for") ??
+        "";
       const ip = rawIp.split(",")[0].trim();
-      const sanitizedIp = /^[\d.]{7,15}$|^[0-9a-f:]{3,39}$/i.test(ip) ? ip : null;
+      const sanitizedIp =
+        /^[\d.]{7,15}$|^[0-9a-f:]{3,39}$/i.test(ip) ? ip : null;
 
-      const newSubscriber: Subscriber = {
+      const subscriber: Subscriber = {
         email,
         timestamp: new Date().toISOString(),
         ip: sanitizedIp,
       };
-      const updated = [...subscribers, newSubscriber];
-      await writeSubscribers(updated);
+
+      // Store in a Redis set (dedup) and list (ordered)
+      await kv.sadd("subscribers:emails", email);
+      await kv.lpush("subscribers:list", JSON.stringify(subscriber));
     }
 
     return NextResponse.json({
       success: true,
-      downloadUrl: "/claude-turbo.zip",
+      downloadUrl: "/turbocode.zip",
     });
-  } catch {
+  } catch (err) {
+    // If KV is not configured, fall back gracefully
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    if (errorMessage.includes("REDIS") || errorMessage.includes("KV")) {
+      // KV not set up yet — still allow download
+      return NextResponse.json({
+        success: true,
+        downloadUrl: "/turbocode.zip",
+      });
+    }
     return NextResponse.json(
       { error: "Something went wrong." },
       { status: 500 }

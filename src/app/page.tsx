@@ -32,7 +32,7 @@ export default function Home() {
         <div className="animate-fade-up mb-6">
           <Image
             src="/icon.png"
-            alt="Claude Turbo"
+            alt="TurboCode"
             width={100}
             height={100}
             className="rounded-[22px] shadow-2xl shadow-cyan-500/20"
@@ -41,9 +41,9 @@ export default function Home() {
         </div>
 
         <h1 className="animate-fade-up text-5xl sm:text-6xl font-bold tracking-tight text-center">
-          Claude{" "}
+          Turbo
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-            Turbo
+            Code
           </span>
         </h1>
 
@@ -63,7 +63,7 @@ export default function Home() {
           How it works
         </h2>
         <p className="text-neutral-400 text-center max-w-lg mx-auto mb-16">
-          Claude Turbo sits in your MacBook notch and handles Claude Code
+          TurboCode sits in your MacBook notch and handles Claude Code
           permission prompts so you don&apos;t have to.
         </p>
 
@@ -84,7 +84,7 @@ export default function Home() {
           <div className="rounded-2xl overflow-hidden border border-neutral-800 shadow-xl shadow-black/40">
             <Image
               src="/screenshot-settings.png"
-              alt="Claude Turbo settings panel dropping down from the MacBook notch"
+              alt="TurboCode settings panel dropping down from the MacBook notch"
               width={800}
               height={500}
               className="w-full"
@@ -101,7 +101,7 @@ export default function Home() {
               Permissions get auto-approved
             </h3>
             <p className="text-neutral-400 leading-relaxed">
-              Every time Claude Code asks for permission, Claude Turbo
+              Every time Claude Code asks for permission, TurboCode
               auto-allows it and shows you a quick notification of what was
               approved. No interruptions.
             </p>
@@ -109,7 +109,7 @@ export default function Home() {
           <div className="md:order-1 rounded-2xl overflow-hidden border border-neutral-800 shadow-xl shadow-black/40">
             <Image
               src="/screenshot-notification.png"
-              alt="Claude Turbo notification showing auto-approved Bash command"
+              alt="TurboCode notification showing auto-approved Bash command"
               width={800}
               height={300}
               className="w-full"
@@ -144,7 +144,7 @@ export default function Home() {
       <section className="px-6 py-20 border-t border-neutral-800/50 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to stop clicking Allow?</h2>
         <p className="text-neutral-400 mb-8 max-w-md mx-auto">
-          Download Claude Turbo and let it handle the permissions while you
+          Download TurboCode and let it handle the permissions while you
           focus on building.
         </p>
         <div className="max-w-lg mx-auto">
@@ -155,8 +155,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-neutral-800 py-8 text-center text-sm text-neutral-500">
         <p>
-          Claude Turbo v1.0 &mdash; macOS 15.0+ required &mdash; Built for
+          TurboCode v1.0 &mdash; macOS 15.0+ required &mdash; Built for
           Claude Code users
+        </p>
+        <p className="mt-3 space-x-4">
+          <a href="/privacy" className="hover:text-neutral-300 transition-colors">Privacy Policy</a>
+          <a href="/terms" className="hover:text-neutral-300 transition-colors">Terms of Use</a>
         </p>
       </footer>
     </div>

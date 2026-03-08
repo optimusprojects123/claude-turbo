@@ -37,7 +37,7 @@ export default function EmailForm() {
 
       setState("success");
       // Trigger download — hardcoded path, never trust server redirect
-      window.location.href = "/claude-turbo.zip";
+      window.location.href = "/turbocode.zip";
     } catch {
       setState("error");
       setErrorMsg("Network error. Please try again.");
@@ -54,7 +54,7 @@ export default function EmailForm() {
         <p className="text-sm text-neutral-400 mt-2">
           If it doesn&apos;t start,{" "}
           <a
-            href="/claude-turbo.zip"
+            href="/turbocode.zip"
             className="text-cyan-400 underline hover:text-cyan-300"
           >
             click here
