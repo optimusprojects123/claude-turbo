@@ -1,3 +1,4 @@
+import Image from "next/image";
 import EmailForm from "@/components/EmailForm";
 
 const features = [
@@ -27,15 +28,17 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero */}
-      <main className="flex-1 flex flex-col items-center justify-center px-6 pt-24 pb-16">
-        {/* Notch mockup */}
-        <div className="animate-fade-up mb-8">
-          <div className="relative">
-            <div className="w-48 h-8 bg-neutral-900 rounded-b-2xl border border-neutral-800 flex items-center justify-center mx-auto">
-              <span className="text-sm">{"\u26A1"}</span>
-            </div>
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-          </div>
+      <main className="flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-16">
+        {/* App icon */}
+        <div className="animate-fade-up mb-6">
+          <Image
+            src="/icon.png"
+            alt="Claude Turbo"
+            width={120}
+            height={120}
+            className="rounded-3xl shadow-2xl shadow-cyan-500/20"
+            priority
+          />
         </div>
 
         <h1 className="animate-fade-up text-5xl sm:text-6xl font-bold tracking-tight text-center">
@@ -54,15 +57,30 @@ export default function Home() {
         <div className="animate-fade-up-delay-2 mt-10 w-full max-w-lg">
           <EmailForm />
         </div>
+
+        {/* Hero image */}
+        <div className="animate-fade-up-delay-2 mt-16 w-full max-w-3xl">
+          <Image
+            src="/hero.png"
+            alt="Claude Turbo in the MacBook notch"
+            width={1200}
+            height={675}
+            className="rounded-2xl border border-neutral-800 shadow-2xl shadow-cyan-500/10"
+          />
+        </div>
       </main>
 
       {/* Features */}
-      <section className="px-6 pb-24">
+      <section className="px-6 py-24">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Everything you need to{" "}
+          <span className="text-cyan-400">go fast</span>
+        </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((f) => (
             <div
               key={f.title}
-              className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 hover:border-neutral-700 transition-colors"
+              className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 hover:border-cyan-500/30 transition-colors"
             >
               <div className="text-2xl mb-3">{f.icon}</div>
               <h3 className="text-lg font-semibold mb-1">{f.title}</h3>
@@ -71,6 +89,23 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Feature screenshot */}
+      <section className="px-6 pb-24">
+        <div className="max-w-2xl mx-auto">
+          <Image
+            src="/feature.png"
+            alt="Claude Turbo settings panel"
+            width={800}
+            height={500}
+            className="rounded-2xl border border-neutral-800 shadow-xl"
+          />
+          <p className="text-center text-sm text-neutral-500 mt-4">
+            Settings drop down right from the notch — toggle turbo, set delay,
+            done.
+          </p>
         </div>
       </section>
 
