@@ -29,14 +29,13 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Hero */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 pt-20 pb-16">
-        {/* App icon */}
         <div className="animate-fade-up mb-6">
           <Image
             src="/icon.png"
             alt="Claude Turbo"
-            width={120}
-            height={120}
-            className="rounded-3xl shadow-2xl shadow-cyan-500/20"
+            width={100}
+            height={100}
+            className="rounded-[22px] shadow-2xl shadow-cyan-500/20"
             priority
           />
         </div>
@@ -48,30 +47,79 @@ export default function Home() {
           </span>
         </h1>
 
-        <p className="animate-fade-up-delay text-lg sm:text-xl text-neutral-400 mt-4 text-center max-w-xl">
+        <p className="animate-fade-up-delay text-lg sm:text-xl text-neutral-400 mt-4 text-center max-w-xl leading-relaxed">
           Your Claude Code companion, living in the notch. Auto-allow
           permissions, skip the clicks, ship faster.
         </p>
 
-        {/* Email form */}
         <div className="animate-fade-up-delay-2 mt-10 w-full max-w-lg">
           <EmailForm />
         </div>
-
-        {/* Hero image */}
-        <div className="animate-fade-up-delay-2 mt-16 w-full max-w-3xl">
-          <Image
-            src="/hero.png"
-            alt="Claude Turbo in the MacBook notch"
-            width={1200}
-            height={675}
-            className="rounded-2xl border border-neutral-800 shadow-2xl shadow-cyan-500/10"
-          />
-        </div>
       </main>
 
+      {/* How it works */}
+      <section className="px-6 py-24 border-t border-neutral-800/50">
+        <h2 className="text-3xl font-bold text-center mb-4">
+          How it works
+        </h2>
+        <p className="text-neutral-400 text-center max-w-lg mx-auto mb-16">
+          Claude Turbo sits in your MacBook notch and handles Claude Code
+          permission prompts so you don&apos;t have to.
+        </p>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-2">
+              Step 1
+            </div>
+            <h3 className="text-xl font-bold mb-3">
+              Open settings from the notch
+            </h3>
+            <p className="text-neutral-400 leading-relaxed">
+              Click the notch area on your MacBook and the settings panel drops
+              down. Toggle Turbo Mode on, pick your auto-allow delay, and hit
+              Apply.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-neutral-800 shadow-xl shadow-black/40">
+            <Image
+              src="/screenshot-settings.png"
+              alt="Claude Turbo settings panel dropping down from the MacBook notch"
+              width={800}
+              height={500}
+              className="w-full"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
+          <div className="md:order-2">
+            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-2">
+              Step 2
+            </div>
+            <h3 className="text-xl font-bold mb-3">
+              Permissions get auto-approved
+            </h3>
+            <p className="text-neutral-400 leading-relaxed">
+              Every time Claude Code asks for permission, Claude Turbo
+              auto-allows it and shows you a quick notification of what was
+              approved. No interruptions.
+            </p>
+          </div>
+          <div className="md:order-1 rounded-2xl overflow-hidden border border-neutral-800 shadow-xl shadow-black/40">
+            <Image
+              src="/screenshot-notification.png"
+              alt="Claude Turbo notification showing auto-approved Bash command"
+              width={800}
+              height={300}
+              className="w-full"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
-      <section className="px-6 py-24">
+      <section className="px-6 py-24 border-t border-neutral-800/50">
         <h2 className="text-3xl font-bold text-center mb-12">
           Everything you need to{" "}
           <span className="text-cyan-400">go fast</span>
@@ -92,20 +140,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature screenshot */}
-      <section className="px-6 pb-24">
-        <div className="max-w-2xl mx-auto">
-          <Image
-            src="/feature.png"
-            alt="Claude Turbo settings panel"
-            width={800}
-            height={500}
-            className="rounded-2xl border border-neutral-800 shadow-xl"
-          />
-          <p className="text-center text-sm text-neutral-500 mt-4">
-            Settings drop down right from the notch — toggle turbo, set delay,
-            done.
-          </p>
+      {/* CTA */}
+      <section className="px-6 py-20 border-t border-neutral-800/50 text-center">
+        <h2 className="text-3xl font-bold mb-4">Ready to stop clicking Allow?</h2>
+        <p className="text-neutral-400 mb-8 max-w-md mx-auto">
+          Download Claude Turbo and let it handle the permissions while you
+          focus on building.
+        </p>
+        <div className="max-w-lg mx-auto">
+          <EmailForm />
         </div>
       </section>
 
