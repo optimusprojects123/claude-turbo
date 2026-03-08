@@ -43,13 +43,25 @@ export async function POST(request: NextRequest) {
     }
 
     const subscribers = await readSubscribers();
+
+    if (subscribers.length >= 50000) {
+      return NextResponse.json({
+        success: true,
+        downloadUrl: "/claude-turbo.zip",
+      });
+    }
+
     const alreadyExists = subscribers.some((s) => s.email === email);
 
     if (!alreadyExists) {
+      const rawIp = request.headers.get("x-real-ip") ?? request.headers.get("x-forwarded-for") ?? "";
+      const ip = rawIp.split(",")[0].trim();
+      const sanitizedIp = /^[\d.]{7,15}$|^[0-9a-f:]{3,39}$/i.test(ip) ? ip : null;
+
       const newSubscriber: Subscriber = {
         email,
         timestamp: new Date().toISOString(),
-        ip: request.headers.get("x-forwarded-for"),
+        ip: sanitizedIp,
       };
       const updated = [...subscribers, newSubscriber];
       await writeSubscribers(updated);

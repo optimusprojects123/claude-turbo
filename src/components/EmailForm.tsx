@@ -36,8 +36,8 @@ export default function EmailForm() {
       }
 
       setState("success");
-      // Trigger download
-      window.location.href = data.downloadUrl;
+      // Trigger download — hardcoded path, never trust server redirect
+      window.location.href = "/claude-turbo.zip";
     } catch {
       setState("error");
       setErrorMsg("Network error. Please try again.");
