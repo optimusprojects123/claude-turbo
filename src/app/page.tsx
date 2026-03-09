@@ -140,6 +140,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Installation */}
+      <section className="px-6 py-24 border-t border-neutral-800/50">
+        <h2 className="text-3xl font-bold text-center mb-4">Installation</h2>
+        <p className="text-neutral-400 text-center max-w-lg mx-auto mb-12">
+          TurboCode is an independent open-source tool. Since it&apos;s not
+          signed with an Apple Developer certificate, macOS will show a
+          security warning. Here&apos;s how to install it:
+        </p>
+
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex gap-4">
+            <div className="text-cyan-400 font-bold text-lg mt-0.5">1.</div>
+            <div>
+              <h3 className="font-semibold mb-1">Download and unzip</h3>
+              <p className="text-neutral-400 text-sm">
+                Download the zip, extract it, and drag{" "}
+                <code className="text-cyan-400">TurboCode.app</code> to your
+                Applications folder.
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-cyan-400 font-bold text-lg mt-0.5">2.</div>
+            <div>
+              <h3 className="font-semibold mb-1">Bypass Gatekeeper</h3>
+              <p className="text-neutral-400 text-sm">
+                <strong>Right-click</strong> the app and select{" "}
+                <strong>Open</strong> (don&apos;t double-click). macOS will show
+                a dialog — click <strong>Open</strong> to confirm. You only need
+                to do this once.
+              </p>
+              <p className="text-neutral-500 text-xs mt-2">
+                Or run in Terminal:{" "}
+                <code className="text-cyan-400/80">
+                  xattr -rd com.apple.quarantine /Applications/TurboCode.app
+                </code>
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-4">
+            <div className="text-cyan-400 font-bold text-lg mt-0.5">3.</div>
+            <div>
+              <h3 className="font-semibold mb-1">
+                Run the install script (optional)
+              </h3>
+              <p className="text-neutral-400 text-sm">
+                For automatic setup including the Claude Code hook, run{" "}
+                <code className="text-cyan-400">bash install.sh</code> from the
+                unzipped folder.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="px-6 py-20 border-t border-neutral-800/50 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to stop clicking Allow?</h2>
