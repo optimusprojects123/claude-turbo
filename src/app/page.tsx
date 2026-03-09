@@ -35,14 +35,14 @@ export default function Home() {
             alt="TurboCode"
             width={100}
             height={100}
-            className="rounded-[22px] shadow-2xl shadow-cyan-500/20"
+            className="rounded-[22px] shadow-2xl shadow-[#C15F3C]/20"
             priority
           />
         </div>
 
         <h1 className="animate-fade-up text-5xl sm:text-6xl font-bold tracking-tight text-center">
           Turbo
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CC785C] to-[#C15F3C]">
             Code
           </span>
         </h1>
@@ -69,7 +69,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-sm font-semibold text-[#CC785C] uppercase tracking-wider mb-2">
               Step 1
             </div>
             <h3 className="text-xl font-bold mb-3">
@@ -94,7 +94,7 @@ export default function Home() {
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-20">
           <div className="md:order-2">
-            <div className="text-sm font-semibold text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="text-sm font-semibold text-[#CC785C] uppercase tracking-wider mb-2">
               Step 2
             </div>
             <h3 className="text-xl font-bold mb-3">
@@ -122,13 +122,13 @@ export default function Home() {
       <section className="px-6 py-24 border-t border-neutral-800/50">
         <h2 className="text-3xl font-bold text-center mb-12">
           Everything you need to{" "}
-          <span className="text-cyan-400">go fast</span>
+          <span className="text-[#CC785C]">go fast</span>
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((f) => (
             <div
               key={f.title}
-              className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 hover:border-cyan-500/30 transition-colors"
+              className="p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 hover:border-[#C15F3C]/30 transition-colors"
             >
               <div className="text-2xl mb-3">{f.icon}</div>
               <h3 className="text-lg font-semibold mb-1">{f.title}</h3>
@@ -151,18 +151,18 @@ export default function Home() {
 
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="flex gap-4">
-            <div className="text-cyan-400 font-bold text-lg mt-0.5">1.</div>
+            <div className="text-[#CC785C] font-bold text-lg mt-0.5">1.</div>
             <div>
               <h3 className="font-semibold mb-1">Download and unzip</h3>
               <p className="text-neutral-400 text-sm">
                 Download the zip, extract it, and drag{" "}
-                <code className="text-cyan-400">TurboCode.app</code> to your
+                <code className="text-[#CC785C]">TurboCode.app</code> to your
                 Applications folder.
               </p>
             </div>
           </div>
           <div className="flex gap-4">
-            <div className="text-cyan-400 font-bold text-lg mt-0.5">2.</div>
+            <div className="text-[#CC785C] font-bold text-lg mt-0.5">2.</div>
             <div>
               <h3 className="font-semibold mb-1">Bypass Gatekeeper</h3>
               <p className="text-neutral-400 text-sm">
@@ -173,21 +173,21 @@ export default function Home() {
               </p>
               <p className="text-neutral-500 text-xs mt-2">
                 Or run in Terminal:{" "}
-                <code className="text-cyan-400/80">
+                <code className="text-[#CC785C]/80">
                   xattr -rd com.apple.quarantine /Applications/TurboCode.app
                 </code>
               </p>
             </div>
           </div>
           <div className="flex gap-4">
-            <div className="text-cyan-400 font-bold text-lg mt-0.5">3.</div>
+            <div className="text-[#CC785C] font-bold text-lg mt-0.5">3.</div>
             <div>
               <h3 className="font-semibold mb-1">
                 Run the install script (optional)
               </h3>
               <p className="text-neutral-400 text-sm">
                 For automatic setup including the Claude Code hook, run{" "}
-                <code className="text-cyan-400">bash install.sh</code> from the
+                <code className="text-[#CC785C]">bash install.sh</code> from the
                 unzipped folder.
               </p>
             </div>

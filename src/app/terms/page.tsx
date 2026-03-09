@@ -66,7 +66,7 @@ export default function TermsOfUse() {
 
         <a
           href="/"
-          className="text-cyan-400 underline hover:text-cyan-300 text-sm"
+          className="text-[#CC785C] underline hover:text-[#d89070] text-sm"
         >
           Back to home
         </a>

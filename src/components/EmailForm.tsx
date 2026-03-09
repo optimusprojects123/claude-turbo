@@ -36,7 +36,6 @@ export default function EmailForm() {
       }
 
       setState("success");
-      // Trigger download — hardcoded path, never trust server redirect
       window.location.href = "/turbocode.zip";
     } catch {
       setState("error");
@@ -48,14 +47,14 @@ export default function EmailForm() {
     return (
       <div className="text-center animate-fade-up">
         <div className="text-4xl mb-3">&#10003;</div>
-        <p className="text-lg text-cyan-400 font-semibold">
+        <p className="text-lg text-[#CC785C] font-semibold">
           Download starting...
         </p>
         <p className="text-sm text-neutral-400 mt-2">
           If it doesn&apos;t start,{" "}
           <a
             href="/turbocode.zip"
-            className="text-cyan-400 underline hover:text-cyan-300"
+            className="text-[#CC785C] underline hover:text-[#d89070]"
           >
             click here
           </a>
@@ -76,13 +75,13 @@ export default function EmailForm() {
             if (state === "error") setState("idle");
           }}
           placeholder="you@email.com"
-          className="flex-1 px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-700 text-white placeholder-neutral-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+          className="flex-1 px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-700 text-white placeholder-neutral-500 focus:outline-none focus:border-[#C15F3C] focus:ring-1 focus:ring-[#C15F3C] transition-colors"
           disabled={state === "loading"}
         />
         <button
           type="submit"
           disabled={state === "loading" || !email}
-          className="px-6 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap"
+          className="px-6 py-3 rounded-xl bg-[#C15F3C] hover:bg-[#CC785C] text-white font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer whitespace-nowrap"
         >
           {state === "loading" ? "..." : "Download for macOS"}
         </button>

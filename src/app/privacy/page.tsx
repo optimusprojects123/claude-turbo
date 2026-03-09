@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
             Email addresses are stored in an encrypted database hosted by
             Vercel. We do not sell, share, or transfer your email to any third
             party. Configuration is stored locally at{" "}
-            <code className="text-cyan-400">
+            <code className="text-[#CC785C]">
               ~/.claude/claude-island-config.json
             </code>
             .
@@ -55,7 +55,7 @@ export default function PrivacyPolicy() {
             For privacy questions, open an issue on our{" "}
             <a
               href="https://github.com/optimusprojects123/claude-turbo"
-              className="text-cyan-400 underline hover:text-cyan-300"
+              className="text-[#CC785C] underline hover:text-[#d89070]"
             >
               GitHub repository
             </a>
@@ -65,7 +65,7 @@ export default function PrivacyPolicy() {
 
         <a
           href="/"
-          className="text-cyan-400 underline hover:text-cyan-300 text-sm"
+          className="text-[#CC785C] underline hover:text-[#d89070] text-sm"
         >
           Back to home
         </a>
